@@ -1,0 +1,68 @@
+.arrowWrapper {
+  position: relative;
+  width: 48px;
+  height: 32px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.iconSlide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  animation: slideRight 2.4s linear infinite;
+}
+
+.delay1 {
+  animation-delay: 0.8s;
+}
+
+.delay2 {
+  animation-delay: 1.6s;
+}
+
+/* LEFT arrow overrides animation direction */
+.left .iconSlide {
+  animation-name: slideLeft;
+}
+
+/* RIGHT ARROW → left ➝ right */
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-22px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(-10px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(22px);
+  }
+}
+
+/* LEFT ARROW → right ➝ left */
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(22px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(10px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(-10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-22px);
+  }
+}

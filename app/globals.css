@@ -1,26 +1,193 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+@theme {
+
+  /* Keyframes define karein */
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  --animate-shimmer: shimmer 2s infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* =========================
+   BREAKPOINTS (Tailwind v4)
+========================= */
+@theme {
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =========================
+   THEME TOKENS – LIGHT
+========================= */
+@theme {
+  /* Backgrounds */
+  --bg-page: #ffffff;
+  --bg-section: #f5f5f5;
+  --bg-card: #ffffff;
+
+  /* Text */
+  --text-title: #000000;
+  --text-subtitle: #111827;
+  --text-muted: #6b7280;
+
+  /* Borders & shadows */
+  --border-color: #e5e7eb;
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  /* Primary */
+  --primary: #4e9ef9;
+  --primary-hover: #2a67f5;
+  --primary-text: #ffffff;
+}
+
+/* =========================
+   THEME TOKENS – DARK
+========================= */
+[data-theme="dark"] {
+  --bg-page: #171717;
+  --bg-section: #2e2e2e;
+  --bg-card: #343434;
+
+  --text-title: #ffffff;
+  --text-subtitle: #dfdfe0;
+  --text-muted: #9ca3af;
+
+  --border-color: #737373;
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+  --primary: #4e9ef9;
+  --primary-hover: #2a67f5;
+  --primary-text: #ffffff;
+}
+
+/* =========================
+   BASE STYLES
+========================= */
+body {
+  background: var(--bg-page);
+  color: var(--text-subtitle);
+}
+
+/* =========================
+   UTILITY CLASSES
+========================= */
+.custom-bg {
+  background: var(--bg-section);
+}
+
+.border-sh {
+  box-shadow: var(--shadow-card);
+}
+
+
+.btn-color {
+  background: var(--primary);
+  color: var(--primary-text);
+}
+
+.btn-color:hover {
+  background: var(--primary-hover);
+}
+
+.red {
+  border: 1px solid red !important;
+}
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+.fullpage-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background: linear-gradient(120deg,
+      #020617,
+      #0f172a,
+      #1e3a8a,
+      #312e81,
+      #020617);
+  background-size: 400% 400%;
+  animation: gradientMove 18s ease infinite;
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.35;
+  animation: blobMove 22s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  width: 420px;
+  height: 420px;
+  background: #3b82f6;
+  top: 10%;
+  left: 5%;
+}
+
+.blob-2 {
+  width: 520px;
+  height: 520px;
+  background: #8b5cf6;
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 6s;
+}
+
+.blob-3 {
+  width: 380px;
+  height: 380px;
+  background: #ec4899;
+  top: 45%;
+  right: 25%;
+  animation-delay: 12s;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes blobMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(80px, -60px) scale(1.1);
+  }
+
+  100% {
+    transform: translate(-60px, 40px) scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fullpage-bg,
+  .bg-blob {
+    animation: none;
+  }
 }
