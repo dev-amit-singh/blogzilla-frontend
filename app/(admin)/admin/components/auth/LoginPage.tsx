@@ -32,7 +32,7 @@ export default function LoginPage() {
     setLoading(true);
     setErrorMsg("");
     try {
-      await axios.post("http://localhost:5000/api/admin/login",
+      await axios.post(`${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/login`,
         { email, password },
         { withCredentials: true }
       );
@@ -52,7 +52,7 @@ export default function LoginPage() {
     setSuccessMsg("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/admin/sent-otp", { email });
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/sent-otp`, { email });
 
       setSuccessMsg(res.data.message);
 
@@ -74,7 +74,7 @@ export default function LoginPage() {
     setLoading(true);
     setErrorMsg("");
     try {
-      await axios.post("http://localhost:5000/api/admin/reset-password", {
+      await axios.post(`${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/reset-password`, {
         email,
         otp,
         newPassword,

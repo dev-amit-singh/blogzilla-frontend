@@ -29,7 +29,7 @@ interface ProfileContextType {
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api/admin", 
+  baseURL: `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin`, 
   withCredentials: true,
 });
 

@@ -46,7 +46,6 @@ export default function AdminSingleBlog() {
     const fetchBlog = async () => {
       try {
         setLoading(true);
-        // Ensure your API URL is correct. Example: http://localhost:3000/api/admin/blogs/123
         const res = await axios.get(`${API}/api/admin/blogs/${id}`);
         setBlog(res.data);
       } catch (err) {

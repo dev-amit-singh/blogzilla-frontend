@@ -15,7 +15,7 @@ export default function CategoriesPage() {
   const [loading, setLoading] = useState(true);
   
   // Use your env variable
-  const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const API = process.env.NEXT_PUBLIC_API_URL ;
 
   useEffect(() => {
     const fetchData = async () => {

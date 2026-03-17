@@ -25,7 +25,7 @@ export default function AdminLayout({
     const checkLogin = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/admin/check-auth",
+          `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/check-auth`,
           { credentials: "include" }
         );
 

@@ -11,9 +11,10 @@ export default function AdminProfile() {
 
   // ✅ load profile
   const loadProfile = async () => {
+    axios.defaults.withCredentials = true;
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/admin/profile",
+        `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/profile`,
         { withCredentials: true }
       );
       setData(res.data);
@@ -29,7 +30,7 @@ export default function AdminProfile() {
   // ✅ save profile
   const saveProfile = async () => {
     await axios.put(
-      "http://localhost:5000/api/admin/profile",
+      `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/profile`,
       data,
       { withCredentials: true }
     );
@@ -43,7 +44,7 @@ export default function AdminProfile() {
     fd.append("avatar", file);
 
     await axios.post(
-      "http://localhost:5000/api/admin/avatar",
+      `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/avatar`,
       fd,
       { withCredentials: true }
     );
@@ -54,7 +55,7 @@ export default function AdminProfile() {
   // ✅ avatar delete
   const deleteAvatar = async () => {
     await axios.delete(
-      "http://localhost:5000/api/admin/avatar",
+      `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/avatar`,
       { withCredentials: true }
     );
     loadProfile();
@@ -67,8 +68,8 @@ export default function AdminProfile() {
 
   const avatar =
     data.avatar
-      ? `http://localhost:5000${data.avatar}?t=${Date.now()}`
-      : "http://localhost:5000/assets/admin-avatar.jpg";
+      ? `${process.env.NEXT_PUBLIC_BACK_URL}/${data.avatar}?t=${Date.now()}`
+      : `${process.env.NEXT_PUBLIC_BACK_URL}/assets/admin-avatar.jpg`;
 
   return (
     <div className="max-w-6xl mx-auto p-6">

@@ -21,7 +21,7 @@ export function AdminHeader() {
 
   try {
     await axios.post(
-      "http://localhost:5000/api/admin/logout",
+      `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/logout`,
       {},
       { withCredentials: true }
     );
