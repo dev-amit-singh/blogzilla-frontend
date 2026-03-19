@@ -45,10 +45,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        // Whenever the frontend asks for /api/admin/...
         source: '/api/admin/:path*',
-        // Next.js will secretly fetch it from Render so the browser allows the cookie
-        destination: 'https://blogzilla-050s.onrender.com/api/admin/:path*',
+        destination: 'https://blogzilla-050s.onrender.com/api/admin/:path*',,
       },
     ];
   },

@@ -2,6 +2,10 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
+export const api = axios.create({
+  baseURL: '/api/admin', 
+  withCredentials: true,
+});
 // TypeScript types
 export interface Profile {
   _id?: string; 
@@ -27,11 +31,6 @@ interface ProfileContextType {
 }
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
-
-export const api = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin`, 
-  withCredentials: true,
-});
 
 export const ProfileProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<Profile | null>(null);

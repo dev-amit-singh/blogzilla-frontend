@@ -29,18 +29,18 @@ export default function LoginPage() {
   // --- Handlers ---
 
  const handleLogin = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setLoading(true);
-  setErrorMsg("");
-  try {
-    await api.post("/login", { email, password });  
-    router.push("/admin");
-  } catch (error: any) {
-    setErrorMsg(error?.response?.data?.message || "Login failed");
-  } finally {
-    setLoading(false);
-  }
-};
+    e.preventDefault();
+    setLoading(true);
+    try {
+      // ✅ FIX: relative URL use करें
+      await api.post("/login", { email, password });
+      router.push("/admin");
+    } catch (error: any) {
+      setErrorMsg(error?.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();

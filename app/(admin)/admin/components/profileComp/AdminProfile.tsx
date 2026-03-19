@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Camera, Save, Edit2, Trash2 } from "lucide-react";
 
+\const api = axios.create({
+  baseURL: '/api/admin', // अब ये rewrite होकर backend पर जाएगा
+  withCredentials: true,
+});
 export default function AdminProfile() {
   const [data, setData] = useState<any>({});
   const [editing, setEditing] = useState(false);
@@ -13,10 +17,7 @@ export default function AdminProfile() {
   const loadProfile = async () => {
     axios.defaults.withCredentials = true;
     try {
-      const res = await axios.get(
-        `/api/admin/profile`, // <-- Changed
-        { withCredentials: true }
-      );
+      const res = await api.get("/profile");
       setData(res.data);
     } catch (e) {
       console.error("load failed", e);
@@ -29,34 +30,22 @@ export default function AdminProfile() {
 
   // ✅ save profile
   const saveProfile = async () => {
-    await axios.put(
-      `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/profile`,
-      data,
-      { withCredentials: true }
-    );
+    await api.put("/profile", data);
     setEditing(false);
     loadProfile();
   };
 
   // ✅ avatar upload
-  const uploadAvatar = async (file: File) => {
+   const uploadAvatar = async (file: File) => {
     const fd = new FormData();
     fd.append("avatar", file);
-    await axios.post(
-      `/api/admin/avatar`, // <-- Changed
-      fd,
-      { withCredentials: true }
-    );
-
+    await api.post("/avatar", fd);
     loadProfile();
   };
 
   // ✅ avatar delete
-  const deleteAvatar = async () => {
-    await axios.delete(
-      `/api/admin/avatar`, // <-- Changed
-      { withCredentials: true }
-    );
+   const deleteAvatar = async () => {
+    await api.delete("/avatar");
     loadProfile();
   };
 
@@ -65,10 +54,9 @@ export default function AdminProfile() {
 
   if (loading) return <div className="p-10">Loading profile...</div>;
 
-  const avatar =
-    data.avatar
-      ? `${process.env.NEXT_PUBLIC_BACK_URL}/${data.avatar}?t=${Date.now()}`
-      : `${process.env.NEXT_PUBLIC_BACK_URL}/assets/admin-avatar.jpg`;
+  const avatarUrl = data.avatar 
+    ? `https://blogzilla-050s.onrender.com/${data.avatar}`
+    : `https://blogzilla-050s.onrender.com/assets/admin-avatar.jpg`;
 
   return (
     <div className="max-w-6xl mx-auto p-6">
