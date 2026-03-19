@@ -28,7 +28,7 @@ interface ProfileContextType {
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin`, 
   withCredentials: true,
 });
@@ -40,18 +40,21 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
 
   // 1. Fetch Profile
   const fetchProfile = useCallback(async () => {
-    try {
-      setLoading(true);
-      const res = await api.get("/profile");
-      setData(res.data);
-      setError(null);
-    } catch (err: any) {
-      console.error("Failed to fetch profile", err);
-      setError(err.response?.data?.message || "Failed to load profile");
-    } finally {
-      setLoading(false);
+  try {
+    setLoading(true);
+    const res = await api.get("/profile");
+    setData(res.data);
+    setError(null);
+  } catch (err: any) {
+    if (err.response?.status === 401) {
+      setData(null); // Clear data if unauthorized, don't necessarily show "Error" alert
+    } else {
+      setError("Server connection failed");
     }
-  }, []);
+  } finally {
+    setLoading(false);
+  }
+}, []);
 
   // 2. Update Profile (Text Data)
   const updateProfile = async (updatedData: Profile) => {
@@ -74,7 +77,7 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
   const uploadAvatar = async (file: File) => {
   try {
     const fd = new FormData();
-    fd.append("avatar", file);
+    fd.append("avatar", file);      
 
     await api.post("/avatar", fd);
 

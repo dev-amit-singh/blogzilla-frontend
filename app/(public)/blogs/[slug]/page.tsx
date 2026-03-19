@@ -140,7 +140,7 @@ export default async function BlogDetailPage({
                 {/* Back Button */}
                 <div className="mb-8">
                     <Link
-                        href="/blog"
+                        href="/blogs"
                         className="inline-flex items-center gap-2 text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors duration-200"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

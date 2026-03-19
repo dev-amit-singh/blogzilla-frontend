@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff, ArrowLeft } from "lucide-react";
+import { api } from "../../context/ProfileContext";
 
 type AuthMode = "login" | "forgot" | "reset";
 
@@ -27,23 +28,19 @@ export default function LoginPage() {
 
   // --- Handlers ---
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setErrorMsg("");
-    try {
-      await axios.post(`${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/login`,
-        { email, password },
-        { withCredentials: true }
-      );
-      router.push("/admin");
-      router.refresh();
-    } catch (error: any) {
-      setErrorMsg(error?.response?.data?.message || "Login failed");
-    } finally {
-      setLoading(false);
-    }
-  };
+ const handleLogin = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
+  setErrorMsg("");
+  try {
+    await api.post("/login", { email, password });  
+    router.push("/admin");
+  } catch (error: any) {
+    setErrorMsg(error?.response?.data?.message || "Login failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
