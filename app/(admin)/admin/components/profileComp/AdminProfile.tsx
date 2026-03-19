@@ -14,7 +14,7 @@ export default function AdminProfile() {
     axios.defaults.withCredentials = true;
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/profile`,
+        `/api/admin/profile`, // <-- Changed
         { withCredentials: true }
       );
       setData(res.data);
@@ -42,9 +42,8 @@ export default function AdminProfile() {
   const uploadAvatar = async (file: File) => {
     const fd = new FormData();
     fd.append("avatar", file);
-
     await axios.post(
-      `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/avatar`,
+      `/api/admin/avatar`, // <-- Changed
       fd,
       { withCredentials: true }
     );
@@ -55,7 +54,7 @@ export default function AdminProfile() {
   // ✅ avatar delete
   const deleteAvatar = async () => {
     await axios.delete(
-      `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/avatar`,
+      `/api/admin/avatar`, // <-- Changed
       { withCredentials: true }
     );
     loadProfile();
@@ -85,7 +84,7 @@ export default function AdminProfile() {
             className={`px-4 py-2 rounded-lg text-white flex gap-2 items-center
               ${editing ? "bg-green-600" : "bg-blue-600"}`}
           >
-            {editing ? <Save size={18}/> : <Edit2 size={18}/>}
+            {editing ? <Save size={18} /> : <Edit2 size={18} />}
             {editing ? "Save" : "Edit"}
           </button>
         </div>
@@ -96,20 +95,20 @@ export default function AdminProfile() {
           <div className="relative group">
             <div>
               <img
-              src={avatar}
-              className="w-36 h-36 rounded-full object-cover border-4"
-            />
+                src={avatar}
+                className="w-36 h-36 rounded-full object-cover border-4"
+              />
             </div>
 
             {editing && (
               <label className="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center cursor-pointer opacity-0 group-hover:opacity-100 transition">
-                <Camera className="text-white"/>
+                <Camera className="text-white" />
                 <input
                   hidden
                   type="file"
                   accept="image/*"
-                  onChange={(e)=>{
-                    if(e.target.files) uploadAvatar(e.target.files[0]);
+                  onChange={(e) => {
+                    if (e.target.files) uploadAvatar(e.target.files[0]);
                   }}
                 />
               </label>
@@ -121,7 +120,7 @@ export default function AdminProfile() {
               onClick={deleteAvatar}
               className="text-red-600 text-sm flex gap-1 items-center"
             >
-              <Trash2 size={16}/> Remove photo
+              <Trash2 size={16} /> Remove photo
             </button>
           )}
         </div>
@@ -131,27 +130,27 @@ export default function AdminProfile() {
 
           <Field label="Name">
             <Input editing={editing} value={data.name}
-              onChange={(v: string)=>change("name",v)} />
+              onChange={(v: string) => change("name", v)} />
           </Field>
 
           <Field label="Email">
             <Input editing={editing} value={data.email}
-              onChange={(v: string)=>change("email",v)} />
+              onChange={(v: string) => change("email", v)} />
           </Field>
 
           <Field label="Phone">
             <Input editing={editing} value={data.phone}
-              onChange={(v: string)=>change("phone",v)} />
+              onChange={(v: string) => change("phone", v)} />
           </Field>
 
           <Field label="Location">
             <Input editing={editing} value={data.location}
-              onChange={(v: string)=>change("location",v)} />
+              onChange={(v: string) => change("location", v)} />
           </Field>
 
           <Field label="Website">
             <Input editing={editing} value={data.website}
-              onChange={(v: string)=>change("website",v)} />
+              onChange={(v: string) => change("website", v)} />
           </Field>
 
           <Field label="Role">
@@ -169,7 +168,7 @@ export default function AdminProfile() {
           {editing ? (
             <textarea
               value={data.bio || ""}
-              onChange={e=>change("bio",e.target.value)}
+              onChange={e => change("bio", e.target.value)}
               className="w-full mt-2 border rounded-lg p-3"
               rows={4}
             />
@@ -205,7 +204,7 @@ function Input({ editing, value, onChange }: any) {
   return (
     <input
       value={value || ""}
-      onChange={e=>onChange(e.target.value)}
+      onChange={e => onChange(e.target.value)}
       className="w-full border rounded-lg p-3"
     />
   );
