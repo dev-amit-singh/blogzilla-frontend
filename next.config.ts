@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/admin/:path*',
-        destination: 'https://blogzilla-050s.onrender.com/api/admin/:path*',,
+        destination: 'https://blogzilla-050s.onrender.com/api/admin/:path*',
       },
     ];
   },
