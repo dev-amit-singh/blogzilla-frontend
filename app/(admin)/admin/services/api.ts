@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = `${process.env.NEXT_PUBLIC_BACK_URL + "/api/admin/"}`
+const baseURL = "/api/admin/"
 const API = axios.create({
   baseURL, // example: http://localhost:5000/api
   withCredentials: true, // if using cookies/auth
@@ -13,9 +13,13 @@ const API = axios.create({
 API.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error(
-      error.response?.data?.message || error.message
-    );
+    if (error.response?.status === 401) {
+      // Token expired or invalid
+      console.log("Authentication failed, redirecting to login...");
+      if (typeof window !== 'undefined') {
+        window.location.href = '/admin/login';
+      }
+    }
     return Promise.reject(error);
   }
 );

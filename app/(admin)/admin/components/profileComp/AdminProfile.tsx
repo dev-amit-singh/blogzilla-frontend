@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Camera, Save, Edit2, Trash2 } from "lucide-react";
 
-\const api = axios.create({
+const api = axios.create({
   baseURL: '/api/admin', // अब ये rewrite होकर backend पर जाएगा
   withCredentials: true,
 });
@@ -83,7 +83,7 @@ export default function AdminProfile() {
           <div className="relative group">
             <div>
               <img
-                src={avatar}
+                src={avatarUrl}
                 className="w-36 h-36 rounded-full object-cover border-4"
               />
             </div>
