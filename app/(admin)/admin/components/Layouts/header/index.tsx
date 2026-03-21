@@ -9,30 +9,32 @@ import { UserInfo } from "./user-info";
 import { Search } from "lucide-react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-
+import { useProfile } from "../../../context/ProfileContext";
 
 export function AdminHeader() {
   const { toggleSidebar, isMobile } = useSidebarContext();
   const router = useRouter();
 
+  const { setIsAuthenticated } = useProfile(); // ✅ FIXED (INSIDE COMPONENT)
+
   const handleLogout = async () => {
-  const ok = confirm("Are you sure you want to logout?");
-  if (!ok) return;
+    const ok = confirm("Are you sure you want to logout?");
+    if (!ok) return;
 
-  try {
-    await axios.post(
-      `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/logout`,
-      {},
-      { withCredentials: true }
-    );
+    try {
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_BACK_URL}/api/admin/logout`,
+        {},
+        { withCredentials: true }
+      );
 
-    router.push("/admin/login");
-    router.refresh();
-  } catch (err) {
-    console.error("Logout failed", err);
-  }
-};
+      setIsAuthenticated(false); // ✅ IMPORTANT
+      router.replace("/admin/login"); // ✅ better
 
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
+  };
 
 
 

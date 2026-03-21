@@ -43,6 +43,7 @@ interface ProfileContextType {
   uploadAvatar: (file: File) => Promise<void>;
   deleteAvatar: () => Promise<void>;
   refreshProfile: () => Promise<void>;
+  setIsAuthenticated: (val: boolean) => void;
 }
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
@@ -131,7 +132,9 @@ export const ProfileProvider = ({ children }: { children: React.ReactNode }) => 
         updateProfile,
         uploadAvatar,
         deleteAvatar,
-        refreshProfile: fetchProfile
+        refreshProfile: fetchProfile,
+        setIsAuthenticated,
+        
       }}
     >
       {children}
