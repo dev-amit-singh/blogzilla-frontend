@@ -1,4 +1,3 @@
-// app/admin/components/Layouts/header.js या header.tsx
 "use client";
 
 import Image from "next/image";
@@ -8,7 +7,7 @@ import { MenuIcon } from "./icons";
 import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useProfile } from "../../../context/ProfileContext";
-import { api } from "../../../context/ProfileContext"; // ✅ API client import करें
+import { api } from "../../../context/ProfileContext";
 
 export function AdminHeader() {
   const { toggleSidebar, isMobile } = useSidebarContext();
@@ -20,18 +19,13 @@ export function AdminHeader() {
     if (!ok) return;
 
     try {
-      // ✅ सही - API client use करें (same as login)
       await api.post("/logout");
-      
-      // ✅ Clear local state
       setIsAuthenticated(false);
       
-      // ✅ Redirect to login
       router.replace("/admin/login");
       
     } catch (err) {
       console.error("Logout failed", err);
-      // अगर API call fail भी हो, तब भी local state clear करें
       setIsAuthenticated(false);
       router.replace("/admin/login");
     }

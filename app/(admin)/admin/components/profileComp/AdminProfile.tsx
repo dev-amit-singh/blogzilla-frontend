@@ -55,7 +55,7 @@ export default function AdminProfile() {
   if (loading) return <div className="p-10">Loading profile...</div>;
 
   const avatarUrl = data.avatar
-    ? `${process.env.NEXT_PUBLIC_BACK_URL}/assets/profile/${data.avatar}`
+    ? `${process.env.NEXT_PUBLIC_BACK_URL}/${data.avatar}`
     : `${process.env.NEXT_PUBLIC_BACK_URL}/${data.avatar}`
 
   return (
