@@ -78,7 +78,7 @@ export default function AdminCommentsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 p-6 md:p-10">
+    <div className="min-h-screen bg-zinc-50 p-6 md:p-10">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
@@ -87,17 +87,17 @@ export default function AdminCommentsPage() {
             <MessageSquare size={24} />
           </div>
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white">
+            <h1 className="text-2xl md:text-3xl font-bold text-zinc-900">
               Manage Comments
             </h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">
+            <p className="text-zinc-500  text-sm mt-1">
               View, moderate, and delete user comments across all blogs.
             </p>
           </div>
         </div>
 
         {/* Content Section */}
-        <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-sm overflow-hidden">
+        <div className="bg-white  border border-zinc-200 rounded-2xl shadow-sm overflow-hidden">
           
           {loading ? (
             /* Loading Skeleton */
@@ -110,8 +110,8 @@ export default function AdminCommentsPage() {
           ) : comments.length === 0 ? (
             /* Empty State */
             <div className="p-16 text-center flex flex-col items-center">
-              <MessageSquare size={48} className="text-zinc-300 dark:text-zinc-700 mb-4" />
-              <h3 className="text-lg font-medium text-zinc-900 dark:text-white">No comments found</h3>
+              <MessageSquare size={48} className="text-zinc-300 mb-4" />
+              <h3 className="text-lg font-medium text-zinc-900">No comments found</h3>
               <p className="text-zinc-500 mt-2">When users comment on your blogs, they will appear here.</p>
             </div>
           ) : (
@@ -119,7 +119,7 @@ export default function AdminCommentsPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-zinc-50 dark:bg-zinc-800/50 border-b border-zinc-200 dark:border-zinc-800">
+                  <tr className="bg-zinc-50 border-b border-zinc-200">
                     <th className="px-6 py-4 text-xs font-semibold text-zinc-500 uppercase tracking-wider">User Info</th>
                     <th className="px-6 py-4 text-xs font-semibold text-zinc-500 uppercase tracking-wider">Comment</th>
                     <th className="px-6 py-4 text-xs font-semibold text-zinc-500 uppercase tracking-wider">Blog Title</th>
@@ -127,18 +127,18 @@ export default function AdminCommentsPage() {
                     <th className="px-6 py-4 text-xs font-semibold text-zinc-500 uppercase tracking-wider text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800">
+                <tbody className="divide-y divide-zinc-200">
                   {comments.map((item) => (
-                    <tr key={item._id} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/20 transition-colors">
+                    <tr key={item._id} className="hover:bg-zinc-50 transition-colors">
                       
                       {/* Name Col */}
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="font-medium text-zinc-900 dark:text-white">{item.name}</div>
+                        <div className="font-medium text-zinc-900">{item.name}</div>
                       </td>
 
                       {/* Comment Col */}
                       <td className="px-6 py-4">
-                        <p className="text-zinc-600 dark:text-zinc-300 text-sm line-clamp-2 max-w-xs">
+                        <p className="text-zinc-600 text-sm line-clamp-2 max-w-xs">
                           {item.comment}
                         </p>
                       </td>
@@ -146,14 +146,14 @@ export default function AdminCommentsPage() {
                       {/* Blog Title Col (Populated Data) */}
                       <td className="px-6 py-4">
                         {item.blogId ? (
-                          <div className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 font-medium">
+                          <div className="flex items-center gap-2 text-sm text-blue-600 font-medium">
                             <span className="truncate max-w-[150px] block" title={item.blogId.title}>
                               {item.blogId.title}
                             </span>
                             <ExternalLink size={14} />
                           </div>
                         ) : (
-                          <span className="text-xs text-red-500 bg-red-100 dark:bg-red-900/30 px-2 py-1 rounded-md">
+                          <span className="text-xs text-red-500 bg-red-100 px-2 py-1 rounded-md">
                             Blog Deleted
                           </span>
                         )}
@@ -168,7 +168,7 @@ export default function AdminCommentsPage() {
                       <td className="px-6 py-4 whitespace-nowrap text-right">
                         <button
                           onClick={() => handleDelete(item._id)}
-                          className="p-2 text-zinc-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors group"
+                          className="p-2 text-zinc-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors group"
                           title="Delete Comment"
                         >
                           <Trash2 size={18} className="group-hover:scale-110 transition-transform" />
