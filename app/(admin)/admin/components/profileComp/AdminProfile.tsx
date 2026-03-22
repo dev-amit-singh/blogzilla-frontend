@@ -36,7 +36,7 @@ export default function AdminProfile() {
   };
 
   // ✅ avatar upload
-  const uploadAvatar = async (file: File) => {
+   const uploadAvatar = async (file: File) => {
     const fd = new FormData();
     fd.append("avatar", file);
     await api.post("/avatar", fd);
@@ -44,7 +44,7 @@ export default function AdminProfile() {
   };
 
   // ✅ avatar delete
-  const deleteAvatar = async () => {
+   const deleteAvatar = async () => {
     await api.delete("/avatar");
     loadProfile();
   };
@@ -54,10 +54,10 @@ export default function AdminProfile() {
 
   if (loading) return <div className="p-10">Loading profile...</div>;
 
-  const avatarUrl = data.avatar
-    // ? `${process.env.NEXT_PUBLIC_BACK_URL}/${data.avatar}?t=${new Date().getTime()}`
-    ? `${process.env.NEXT_PUBLIC_BACK_URL}/${data.avatar}`
-  : "http://localhost:5000/assets/";
+  const avatarUrl = data.avatar 
+    ? `https://blogzilla-050s.onrender.com/${data.avatar}`
+    : `https://blogzilla-050s.onrender.com/assets/admin-avatar.jpg`;
+    
 
   return (
     <div className="max-w-6xl mx-auto p-6">
