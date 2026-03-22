@@ -5,7 +5,7 @@ import axios from "axios";
 import { Trash2, MessageSquare, ExternalLink } from "lucide-react";
 
 // API URL aapke backend ke hisaab se adjust kar lein
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const API = process.env.NEXT_PUBLIC_BACK_URL || "http://localhost:5000";
 
 // TypeScript Interface for Comment Data
 interface Comment {
