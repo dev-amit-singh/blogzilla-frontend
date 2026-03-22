@@ -8,7 +8,7 @@ export default function AdminProfile() {
   const { data, loading, updateProfile, uploadAvatar, deleteAvatar } = useProfile();
 
   const [editing, setEditing] = useState(false);
-  const [tempData, setTempData] = useState<Profile>({}); // Initialize as empty object
+  const [tempData, setTempData] = useState<Profile>({});
 
   // 1. Initialize Edit Mode
   const startEditing = () => {

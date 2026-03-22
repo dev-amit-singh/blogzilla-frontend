@@ -12,7 +12,7 @@ export const NAV_DATA = [
       },
       {
         title: "Profile",
-        url: "/profile",
+        url: "/admin/profile",
         icon: Icons.User,
         items: [],
       },
