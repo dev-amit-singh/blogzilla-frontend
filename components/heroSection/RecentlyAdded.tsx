@@ -32,7 +32,7 @@ export default function RecentlyAdded() {
           >
             <div className="rounded-2xl overflow-hidden border border-[color:var(--border-color)]">
               <Image
-                src="/blogimg/blog-6.jpg"
+                src={`${process.env.NEXT_PUBLIC_FRONT_URL}/blogimg/blog-6.jpg`}
                 alt="Featured"
                 width={1000}
                 height={600}

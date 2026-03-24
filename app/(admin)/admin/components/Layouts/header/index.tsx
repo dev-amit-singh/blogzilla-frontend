@@ -14,7 +14,7 @@ export function AdminHeader() {
   const { toggleSidebar, isMobile } = useSidebarContext();
   const router = useRouter();
 
-  const { setIsAuthenticated } = useProfile(); // ✅ FIXED (INSIDE COMPONENT)
+  const { setIsAuthenticated } = useProfile();
 
   const handleLogout = async () => {
   const ok = confirm("Are you sure you want to logout?");

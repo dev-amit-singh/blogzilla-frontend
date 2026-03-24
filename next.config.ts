@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "http",
+        hostname: "blogzilla.in",
+        port: "",
+      },
+      {
+        protocol: "http",
         hostname: "127.0.0.1",
         port: "5000",
         pathname: "/**",
