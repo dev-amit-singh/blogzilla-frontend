@@ -32,7 +32,7 @@ export default function RecentlyAdded() {
           >
             <div className="rounded-2xl overflow-hidden border border-[color:var(--border-color)]">
               <Image
-                src={`/blogimg/blog-3.jpg`}
+                src={`/blogImg/blog-3.jpg`}
                 alt="Featured"
                 className="w-full h-[200px] sm:h-[260px] md:h-[320px] lg:h-[380px] object-cover"
               />
@@ -143,24 +143,24 @@ const posts = [
     title: "The Science of Happiness: Cultivating Joy",
     author: "Alex",
     read: "03 min read",
-    image: "/blogimg/blog-8.jpg",
+    image: "/blogImg/blog-8.jpg",
   },
   {
     title: "First Look: Nine New Indie Bio Companies",
     author: "Nilima",
     read: "03 min read",
-    image: "/blogimg/blog-9.jpg",
+    image: "/blogImg/blog-9.jpg",
   },
   {
     title: "Breaking into a Tech Support Opportunity",
     author: "Alex",
     read: "03 min read",
-    image: "/blogimg/blog-10.jpg",
+    image: "/blogImg/blog-10.jpg",
   },
   {
     title: "Embracing Change with Resilience",
     author: "Alex",
     read: "03 min read",
-    image: "/blogimg/blog-11.jpg",
+    image: "/blogImg/blog-11.jpg",
   },
 ];
