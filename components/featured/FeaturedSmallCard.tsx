@@ -37,7 +37,7 @@ export default function FeaturedSmallCard({
     >
       {/* IMAGE */}
       <div className="relative h-[230px]">
-        <Image src={image} alt={title} fill className="object-cover w-full" />
+        <Image src={image} alt={title} fill className="object-cover w-full" unoptimized={true} />
       </div>
 
       {/* CONTENT */}
