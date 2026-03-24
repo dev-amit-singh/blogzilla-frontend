@@ -81,7 +81,7 @@ export default function Home() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <BlogCard
-                    image="/blogimg/blog-1.jpg"
+                    image="/blogImg/blog-1.jpg"
                     category="Artists • Film"
                     title="Easy Ways to Use Alternatives to Plastic"
                     description="Graduating from a top accelerator or incubator can be a career-defining moment..."
@@ -91,7 +91,7 @@ export default function Home() {
                   />
 
                   <BlogCard
-                    image="/blogimg/blog-2.jpg"
+                    image="/blogImg/blog-2.jpg"
                     category="Fashion"
                     title="Tips for Growing Healthy, Longer Hair"
                     description="Proin vitae placerat quam. Ut sodales eleifend urna..."
@@ -101,7 +101,7 @@ export default function Home() {
                   />
 
                   <BlogCard
-                    image="/blogimg/blog-3.jpg"
+                    image="/blogImg/blog-3.jpg"
                     category="Lifestyle"
                     title="Project Ideas Around the House"
                     description="Sed tempor condimentum metus non tempor..."
@@ -111,7 +111,7 @@ export default function Home() {
                   />
 
                   <BlogCard
-                    image="/blogimg/blog-4.jpg"
+                    image="/blogImg/blog-4.jpg"
                     category="Hotels"
                     title="How to Give Yourself a Spa Day from Home"
                     description="Graduating from a top accelerator or incubator..."
@@ -133,21 +133,21 @@ export default function Home() {
 
                   <div className="space-y-4">
                     <PopularPost
-                      image="/blogimg/blog-5.jpg"
+                      image="/blogImg/blog-5.jpg"
                       title="Spending Some Quality Time with Kids!"
                       date="05 August"
                       views="150 views"
                     />
 
                     <PopularPost
-                      image="/blogimg/blog-6.jpg"
+                      image="/blogImg/blog-6.jpg"
                       title="Relationship Podcasts are Having ‘That’ Talk"
                       date="12 August"
                       views="6K views"
                     />
 
                     <PopularPost
-                      image="/blogimg/blog-7.jpg"
+                      image="/blogImg/blog-7.jpg"
                       title="Here’s How to Get the Best Sleep at Night"
                       date="15 August"
                       views="16K views"
