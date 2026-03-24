@@ -140,9 +140,9 @@ export default function CategoryListSection() {
           {categories[5] && (
             <SwiperSlide>
               <CategoryListItem
-                image={categories[4].image || "/blogimg/blog-10.jpg"}
-                title={categories[4]._id}
-                description={categories[4].description}
+                image={categories[5].image || "/blogimg/blog-9.jpg"}
+                title={categories[5]._id}
+                description={"Find best travel destinations, tips, and experiences around the world"}
               />
             </SwiperSlide>
           )}
@@ -152,12 +152,8 @@ export default function CategoryListSection() {
   );
 }
 
-/* INTERNAL SKELETON COMPONENT (FIXED COLORS) */
 function CategorySkeleton() {
-  // Base colors for the skeleton parts
-  // const baseBg = "bg-zinc-200 dark:bg-zinc-800";
-  // const shimmerEffect = "absolute inset-0 bg-gradient-to-r from-transparent via-white/40 dark:via-white/10 to-transparent animate-shimmer";
-  const baseBg = "bg-zinc-200"; // Fixed light grey color
+  const baseBg = "bg-zinc-200"; 
   const shimmerEffect = "absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent animate-shimmer";
 
   return (
