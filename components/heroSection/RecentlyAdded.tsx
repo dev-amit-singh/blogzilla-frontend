@@ -34,8 +34,6 @@ export default function RecentlyAdded() {
               <Image
                 src={`/blogimg/blog-3.jpg`}
                 alt="Featured"
-                width={1000}
-                height={600}
                 className="w-full h-[200px] sm:h-[260px] md:h-[320px] lg:h-[380px] object-cover"
               />
             </div>
