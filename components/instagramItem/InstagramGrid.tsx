@@ -5,12 +5,12 @@ import Link from "next/link";
 import { Instagram } from "lucide-react";
 
 const images = [
-  { src: "/blogimg/blog-7.jpg", link: "https://www.instagram.com/p/POST1/" },
-  { src: "/blogimg/blog-8.jpg", link: "https://www.instagram.com/p/POST2/" },
-  { src: "/blogimg/blog-9.jpg", link: "https://www.instagram.com/p/POST3/" },
-  { src: "/blogimg/blog-10.jpg", link: "https://www.instagram.com/p/POST4/" },
-  { src: "/blogimg/blog-11.jpg", link: "https://www.instagram.com/p/POST5/" },
-  { src: "/blogimg/blog-12.jpg", link: "https://www.instagram.com/p/POST6/" },
+  { src: "/blogImg/blog-7.jpg", link: "https://www.instagram.com/p/POST1/" },
+  { src: "/blogImg/blog-8.jpg", link: "https://www.instagram.com/p/POST2/" },
+  { src: "/blogImg/blog-9.jpg", link: "https://www.instagram.com/p/POST3/" },
+  { src: "/blogImg/blog-10.jpg", link: "https://www.instagram.com/p/POST4/" },
+  { src: "/blogImg/blog-11.jpg", link: "https://www.instagram.com/p/POST5/" },
+  { src: "/blogImg/blog-12.jpg", link: "https://www.instagram.com/p/POST6/" },
 ];
 
 export default function InstagramGrid() {

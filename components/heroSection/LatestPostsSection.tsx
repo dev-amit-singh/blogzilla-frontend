@@ -15,7 +15,7 @@ export default function LatestPostsSection() {
 
           <div className="space-y-8">
             <LatestPostItem
-              image="/blogimg/blog-7.jpg"
+              image="/blogImg/blog-7.jpg"
               category="Food"
               title="Helpful Tips for Working from Home as a Freelancer"
               date="7 August"
@@ -23,7 +23,7 @@ export default function LatestPostsSection() {
               views="3K views"
             />
             <LatestPostItem
-              image="/blogimg/blog-8.jpg"
+              image="/blogImg/blog-8.jpg"
               category="Cooking"
               title="10 Easy Ways to Be Environmentally Conscious At Home"
               date="27 Sep"
@@ -31,7 +31,7 @@ export default function LatestPostsSection() {
               views="22K views"
             />
             <LatestPostItem
-              image="/blogimg/blog-9.jpg"
+              image="/blogImg/blog-9.jpg"
               category="Cooking"
               title="My Favorite Comfies to Lounge in At Home"
               date="7 August"
@@ -39,7 +39,7 @@ export default function LatestPostsSection() {
               views="12K views"
             />
             <LatestPostItem
-              image="/blogimg/blog-10.jpg"
+              image="/blogImg/blog-10.jpg"
               category="Travel"
               title="How to Give Your Space a Parisian-Inspired Makeover"
               date="27 August"
