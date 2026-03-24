@@ -95,7 +95,7 @@ export default function CategoryListSection() {
           {categories[0] && (
             <SwiperSlide>
               <CategoryListItem
-                image={categories[0].image || "/blogimg/blog-14.jpg"}
+                image={categories[0].image || "/blogImg/blog-14.jpg"}
                 title={categories[0]._id}
                 description={"Protecting data through advanced encryption and privacy strategies."}
               />
@@ -104,7 +104,7 @@ export default function CategoryListSection() {
           {categories[1] && (
             <SwiperSlide>
               <CategoryListItem
-                image={categories[1].image || "/blogimg/blog-13.jpg"}
+                image={categories[1].image || "/blogImg/blog-13.jpg"}
                 title={categories[1]._id}
                 description={"Expert tips for balanced living and total physical well-being"}
               />
@@ -113,7 +113,7 @@ export default function CategoryListSection() {
           {categories[2] && (
             <SwiperSlide>
               <CategoryListItem
-                image={categories[2].image || "/blogimg/blog-12.jpg"}
+                image={categories[2].image || "/blogImg/blog-12.jpg"}
                 title={categories[2]._id}
                 description={"Journey through Earth’s diverse ecosystems and wild creatures."}
               />
@@ -122,7 +122,7 @@ export default function CategoryListSection() {
           {categories[3] && (
             <SwiperSlide>
               <CategoryListItem
-                image={categories[3].image || "/blogimg/blog-11.jpg"}
+                image={categories[3].image || "/blogImg/blog-11.jpg"}
                 title={categories[3]._id}
                 description={"Real-time monitoring and rapid response to modern digital threats."}
               />
@@ -131,7 +131,7 @@ export default function CategoryListSection() {
           {categories[4] && (
             <SwiperSlide>
               <CategoryListItem
-                image={categories[4].image || "/blogimg/blog-10.jpg"}
+                image={categories[4].image || "/blogImg/blog-10.jpg"}
                 title={categories[4]._id}
                 description={"Exploring future innovations, latest gadgets and digital trends"}
               />
@@ -140,7 +140,7 @@ export default function CategoryListSection() {
           {categories[5] && (
             <SwiperSlide>
               <CategoryListItem
-                image={categories[5].image || "/blogimg/blog-9.jpg"}
+                image={categories[5].image || "/blogImg/blog-9.jpg"}
                 title={categories[5]._id}
                 description={"Find best travel destinations, tips, and experiences around the world"}
               />
