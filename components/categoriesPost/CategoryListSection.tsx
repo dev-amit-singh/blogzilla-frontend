@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import CategoryListItem from "./CategoryListItem";
 import { MoveLeft, MoveRight } from "lucide-react";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const API = process.env.BASE_URL || "http://localhost:5000";
 
 export default function CategoryListSection() {
   const prevRef = useRef<HTMLButtonElement>(null);
